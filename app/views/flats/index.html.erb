@@ -1,5 +1,17 @@
 <h1>All our Flats</h1>
-<p> All <%= @flats.length %> flats.</p>
+
+<form>
+  <input class="form-control" name="query" type="search" placeholder="Search" aria-label="Search" value="<% params[:query] %>">
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</form>
+
+<div>
+      <% if @query %>
+        <p>You searched for <strong><%= @query %></strong>. We found <%= @flats.count %> flats out of our <%= Flat.count %> on our website.</p>
+      <% else %>
+        <p>All <%= Flat.count %> flats.</p>
+      <% end %>
+</div>
 
 <ul>
   <% @flats.each do |flat| %>
