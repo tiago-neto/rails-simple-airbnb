@@ -1,12 +1,16 @@
-<h1>Here are your Flats</h1>
+<h1>All our Flats</h1>
+<p> All <%= @flats.length %> flats.</p>
+
 <ul>
   <% @flats.each do |flat| %>
-    <li><%= link_to flat.name, flat_path(flat) %> <%= link_to "Update a flat", edit_flat_path(flat) %> <i class="fa-solid fa-trash-can"></i> <%= link_to "Delete",
-  flat_path(flat),
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-%></li>
+
+    <li> <%= flat.name %> </li>
+    <li> <%= flat.address %> </li>
+    <li> <i class="fa-solid fa-people-group"></i> <%= flat.number_of_guests %>  <li>  <i class="fa-solid fa-euro-sign"></i> <%= flat.price_per_night %></li>
+    <li> <%= link_to "More info", flat_path(flat) %>
+    <%= link_to "Edit", edit_flat_path(flat) %>
+    <%= link_to "Remove", flat_path(flat), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></li>
   <% end %>
 </ul>
 
-<i class="fa-solid fa-circle-plus"></i><%= link_to "Create new flat", new_flat_path %>
-<i class="fa-solid fa-pen-to-square"></i>
+<%= link_to "Add a flat", new_flat_path %>

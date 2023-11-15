@@ -1,8 +1,8 @@
-<h2><%= @flat.name %></h2>
+<h1><%= @flat.name %></h1>
 <p><%= @flat.address %></p>
+<h2>A bit more about this flat...</h2>
 <p><%= @flat.description %></p>
-<p><%= @flat.price_per_night %></p>
-<p><%= @flat.number_of_guests %></p>
+<h2>Details</h2>
+<p><%= @flat.number_of_guests %> people  <%= @flat.price_per_night %> <i class="fa-solid fa-euro-sign"></i></p>
 
 <i class="fa-solid fa-table-list"></i> <%= link_to "See all flats", flats_path %>
-
